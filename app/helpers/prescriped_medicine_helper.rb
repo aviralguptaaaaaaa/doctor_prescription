@@ -1,0 +1,2 @@
+module PrescripedMedicineHelper
+end
