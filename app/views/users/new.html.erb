@@ -1,0 +1,39 @@
+<h1> Register Yourself! </h1>
+<%= form_with model: @user do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      
+    </div>
+  
+    <div>
+      <%= form.label :email %><br>
+      <%= form.text_area :email %><br>
+     
+    </div>
+
+    
+    <div>
+      <%= form.label :password %><br>
+      <%= form.text_area :password %><br>
+      
+    </div>
+
+    
+    <div>
+      <%= form.label :phone_no %><br>
+      <%= form.text_area :phone_no %><br>
+     
+    </div>
+  
+
+    <div>
+      <%= form.label :role %><br>
+      <%= form.text_area :role %><br>
+     
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>

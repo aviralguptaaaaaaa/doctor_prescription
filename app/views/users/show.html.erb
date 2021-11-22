@@ -1,0 +1,4 @@
+<ul>
+  <% if @user.role == patient %>
+  <li><%= link_to "", doctors_show_path(@article) %></li>
+</ul>

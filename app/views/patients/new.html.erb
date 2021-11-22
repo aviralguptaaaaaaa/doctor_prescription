@@ -1,0 +1,26 @@
+<h1>Tell us about Yourself! </h1>
+<%= form_with model: @patient do |form| %>
+    <div>
+      <%= form.label :Age %><br>
+      <%= form.text_field :Age %>
+      
+    </div>
+  
+    <div>
+    <%= form.label :Weight %><br>
+    <%= form.text_field :Weight %>
+    </div>
+
+  
+  <div>
+  <%= form.label :Describe_Your_Problem %><br>
+  <%= form.text_field :Disease %>
+  </div>
+<br>
+
+  <div>
+  <%= form.submit %>
+</div>
+
+    <%end%>
+
