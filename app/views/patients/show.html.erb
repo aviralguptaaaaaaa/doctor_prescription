@@ -1,1 +1,8 @@
-<%= @doctor.all %>
+
+
+
+<ul>
+<li><%= link_to "Edit", edit_patient_path(@patient) %></li>
+<li><%= link_to "Destroy", patient_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
+</ul>
+

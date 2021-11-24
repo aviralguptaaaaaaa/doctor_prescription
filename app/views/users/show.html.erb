@@ -1,4 +1,3 @@
-<ul>
-  <% if @user.role == patient %>
-  <li><%= link_to "", doctors_show_path(@article) %></li>
-</ul>
+<% if @user.type =="doctor"%>
+<%= render "form", user: @user %>
+<%end%>

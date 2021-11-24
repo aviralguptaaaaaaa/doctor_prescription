@@ -1,2 +1,31 @@
-<%= @doctors.all %>
 
+
+
+<ul>
+  <li><%= link_to "Edit", edit_doctor_path(@doctor) %></li>
+  <li><%= link_to "Destroy", doctor_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
+</ul>
+<h2>Patients</h2>
+<% @doctor.patients.each do |p| %>
+  <p>
+    <strong>Patient_Name</strong>
+    <%= patient.name %>
+  </p>
+
+  <p>
+    <strong>Problem</strong>
+    <%= patient.disease %>
+  </p>
+  <p>
+  <strong>Age</strong>
+  <%= patient.age %>
+</p>
+ 
+<p>
+<strong>weight</strong>
+<%= patient.weight %>
+</p>
+
+
+
+<% end %>

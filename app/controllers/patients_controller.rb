@@ -1,19 +1,19 @@
 class PatientsController < ApplicationController
-    def new
-        @patient=Patient.new
-    end
 
   def index
-    @patients=Doctor.all
+    @patients=Patient.all
   end
-    def create
-        @patient=Patient.new(patient_params)
-        if @patient.save
-            render_to @patient
-        else
-            render :new
 
-        end
+  def new
+    @patient=Patient.new
+ end
+  def create
+      @patient=Patient.new(patient_params)
+      if @patient.save
+          render_to @patient
+      else
+          render :new
+        end 
     end
 
     private

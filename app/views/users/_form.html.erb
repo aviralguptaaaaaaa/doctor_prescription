@@ -1,0 +1,21 @@
+<%= form_with model: user do |form| %>
+    <div>
+      <%= form.label :specialist_in %><br>
+      <%= form.text_field :specialist_in %>
+    </div>
+  
+    <div>
+      <%= form.label :qualifications %><br>
+      <%= form.text_area :qualifications %><br>
+     
+    </div>
+    <div>
+    <%= form.label :certifications %><br>
+    <%= form.text_area :certifications %><br>
+   
+  </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>

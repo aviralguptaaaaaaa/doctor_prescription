@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_115027) do
+ActiveRecord::Schema.define(version: 2021_11_24_110708) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "date"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "patients_problem"
+    t.integer "patients_age"
+    t.string "time"
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.string "specialist_in"
-    t.string "Qualifications"
-    t.string "Certifications"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,9 +35,6 @@ ActiveRecord::Schema.define(version: 2021_11_22_115027) do
   end
 
   create_table "patients", force: :cascade do |t|
-    t.integer "age"
-    t.integer "weight"
-    t.text "disease"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -62,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_11_22_115027) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "phone_no"
-    t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -70,6 +66,10 @@ ActiveRecord::Schema.define(version: 2021_11_22_115027) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "type"
+    t.string "qualifications"
+    t.string "certifications"
+    t.string "specialist_in"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
