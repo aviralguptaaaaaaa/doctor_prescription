@@ -1,8 +1,45 @@
-
-
-
 <ul>
 <li><%= link_to "Edit", edit_patient_path(@patient) %></li>
-<li><%= link_to "Destroy", patient_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
+<li><%= link_to "Destroy", patient_path(@patient),method: :delete, data: { confirm: "Are you sure?" } %></li>
 </ul>
+
+<h1>Book an apointment </h1>
+<%= form_with model: [ @patient, @patient.appointments.build ] do |form| %>
+    <div>
+      <%= form.label :date %><br>
+      <%= form.text_field :date %>
+      
+    </div>
+  
+    <div>
+      <%= form.label :Age %><br>
+      <%= form.text_field :Age %>
+      
+    </div>
+  
+    <div>
+    <%= form.label :Weight %><br>
+    <%= form.text_field :Weight %>
+    </div>
+
+  
+  <div>
+  <%= form.label :patients_problem %><br>
+  <%= form.text_field :patients_problem %>
+  </div>
+  <br>
+
+    <div>
+      <%= form.label :status %><br>
+      <%= form.text_field :status %>
+      
+    </div>
+  
+
+  <div>
+  <%= form.submit %>
+  </div>
+
+    <%end%>
+
 
