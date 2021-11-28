@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
  
   root to: "users#show"
-  devise_for :users
+  devise_for :users 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  resources :users
+ resources :doctors
  resources :patients do
-  resources :appointment
+  resources :appointments
  end
+
+
+
 end

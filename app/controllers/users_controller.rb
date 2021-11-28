@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       @user= User.find(params[:id])
   
       if @user.update(user_params_second)
-        redirect_to @user
+        redirect_to appointments_path(@user)
       else
         render :edit
       end

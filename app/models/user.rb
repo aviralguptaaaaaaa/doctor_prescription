@@ -6,5 +6,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
   scope :doctor, -> { where(type: 'doctor') } 
-  scope :patient, -> { where(type: 'patients') } 
+  scope :patient, -> { where(type: 'patient') } 
 end

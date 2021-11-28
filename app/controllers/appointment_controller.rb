@@ -2,16 +2,16 @@ class AppointmentController < ApplicationController
     
     def new
         @appointment=Appointment.new
-
+    end
     def create
         @patient = Patient.find(params[:patient_id])
-        @appointment = @patient.appointments.create(comment_params)
+        @appointment = @patient.appointment.create(comment_params)
         redirect_to patient_path(@patient)
       end
     
       private
         def comment_params
-          params.require(:appointment).permit(:date, :patients_problem, :patients_age, :time)
+          params.require(:appointment).permit(:date, :time, :patients_age, :weight, :patients_problem)
         end
 end
  

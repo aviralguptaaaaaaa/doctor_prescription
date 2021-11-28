@@ -5,27 +5,36 @@
   <li><%= link_to "Edit", edit_doctor_path(@doctor) %></li>
   <li><%= link_to "Destroy", doctor_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
 </ul>
-<h2>Patients</h2>
-<% @doctor.patients.each do |p| %>
+
+<h2>Appointments</h2>
+<% @doctor.appointments.each do |app| %>
   <p>
-    <strong>Patient_Name</strong>
-    <%= patient.name %>
+    <strong>Date</strong>
+    <%= app.date %>
   </p>
 
   <p>
-    <strong>Problem</strong>
-    <%= patient.disease %>
-  </p>
+  <strong> Time</strong>
+  <%= app.time %>
+ </p>
+
   <p>
-  <strong>Age</strong>
-  <%= patient.age %>
+    <strong> Patients Problem</strong>
+    <%= app.patients_problem %>
+  </p>
+
+  <p>
+  <strong> Patients Age</strong>
+  <%= app.patients_age %>
 </p>
- 
 <p>
-<strong>weight</strong>
-<%= patient.weight %>
+<strong> Patients Age</strong>
+<%= app.patients_age %>
 </p>
 
+
+
+ 
 
 
 <% end %>

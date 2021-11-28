@@ -2,6 +2,15 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div>
+  <%= f.label :phone_no %><br>
+  <%= f.text_area :phone_no %><br>
+ 
+</div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -21,8 +30,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :type, autofocus: true, autocomplete: "type" %>
+  <%= f.select :type, ['Doctor', 'Patient'] ,include_blank: true%>
   </div>
 
   <div class="actions">
