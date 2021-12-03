@@ -1,0 +1,14 @@
+
+<%= form_for :appointment do |form|%><br>
+    <div>
+      <%= form.label :prescription %><br>
+      <%= form.text_area :prescription %>
+      
+    </div>
+    <div>
+<%= form.submit "Save Prescription" %>
+</div>
+<br>
+ <%end%>
+
+ <%= link_to "Add Medicines", new_appointment_medicine_path(@appointment.id) %>

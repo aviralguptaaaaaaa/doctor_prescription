@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ap=Appointment.create({:date => "20", :patients_problem => "heart", :patients_age => 21, :time => "8 pm", :doctor_id => 9, :patient_id => 12, :status => "pending"})
+

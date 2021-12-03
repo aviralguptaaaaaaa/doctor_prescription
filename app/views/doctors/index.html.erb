@@ -1,0 +1,9 @@
+<ul>
+  <% @doctors.each do |doctor| %>
+    <li>
+    <a href="/doctors/<%= doctor.id %>">
+      <%= doctor.name %>
+    </li>
+  <% end %>
+  
+</ul>

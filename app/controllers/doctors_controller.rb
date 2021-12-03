@@ -6,8 +6,10 @@ class DoctorsController < ApplicationController
     def new
         @doctor=Doctor.new
     end
+    
     def show
-        @doctor = Doctor.find(params[:id])
+      @patient=current_user
+      @doctor = Doctor.find(params[:id])
     end
     def edit
         @doctor = Doctor.find(params[:id])
@@ -18,7 +20,7 @@ class DoctorsController < ApplicationController
         @doctor= Doctor.find(params[:id])
     
         if @doctor.update(user_params_second)
-          redirect_to @doctor
+          redirect_to root_path
         else
           render :edit
         end

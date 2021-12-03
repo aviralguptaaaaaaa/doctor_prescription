@@ -2,39 +2,14 @@
 
 
 <ul>
-  <li><%= link_to "Edit", edit_doctor_path(@doctor) %></li>
-  <li><%= link_to "Destroy", doctor_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
+ # <li><%= link_to "Edit", edit_doctor_path(@doctor) %></li>
+  #<li><%= link_to "Destroy", doctor_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
 </ul>
 
-<h2>Appointments</h2>
-<% @doctor.appointments.each do |app| %>
-  <p>
-    <strong>Date</strong>
-    <%= app.date %>
-  </p>
 
-  <p>
-  <strong> Time</strong>
-  <%= app.time %>
- </p>
-
-  <p>
-    <strong> Patients Problem</strong>
-    <%= app.patients_problem %>
-  </p>
-
-  <p>
-  <strong> Patients Age</strong>
-  <%= app.patients_age %>
-</p>
-<p>
-<strong> Patients Age</strong>
-<%= app.patients_age %>
-</p>
-
-
-
+<h3> Name :</h3> <span> Dr.</span> <%= @doctor.name %>
+<h3>Qualifications :- </h3><%= @doctor.qualifications%> 
+<h3>Specializations :- </h3><%= @doctor.specialist_in %>
+<h3>Certifications :- </h3><%= @doctor.certifications %> <br>
  
-
-
-<% end %>
+<%= link_to "Book Appointment", new_doctor_appointment_path(@doctor)%>

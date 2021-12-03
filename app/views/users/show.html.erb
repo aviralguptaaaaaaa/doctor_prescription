@@ -1,11 +1,39 @@
 <% if @user.type== "Doctor" %>
   
   <li><%= link_to "update details", edit_doctor_path(@user) %></li>   #for updating doctors details
+  <%= link_to "Destroy", user_path(@user),method: :delete, data: { confirm: "Are you sure?" } %>
+
+  <h1> Appointments </h1>
+<ol><% @user.appointments.each do |appointment| %>
   
-  <li><%= link_to "Destroy", user_path(@user),method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <% p= Patient.find(appointment.patient_id) %>
+<li>  <strong>Doctor Appointed :- </strong><% d= Doctor.find(appointment.doctor_id) %> <span>Dr. </span><%= d.name%></li><br>
+<li>  <strong> Patient's Problem :- </strong> <%= appointment.patients_problem %> <br></li>
+<li>   <strong>Patient's Name :- </strong> <%= p.name%></li><br>
+<li>  <strong>Patient's age :- </strong> <%=appointment.patients_age%></li> <br>
+<li> <strong>Given prescription :- </strong> <%=appointment.prescription%></li> <br>
+ 
+      <%= link_to "Edit Prescription" , edit_doctor_appointment_path(current_user.id,appointment.id) %>   
+      
+      <li><strong> Medicine Given</strong></li>
+        <ol>
+          <%appointment.medicines.each do |m|%>
+            <li> <strong>Name: </strong>  <%=m.name%> </li>
+            <li> <strong>Medicine Intake: </strong>  <%=m.medicine_intake%> </li>
+            <li> <strong>Purpose: </strong>  <%=m.purpose%> </li>
+            
+          <%end%>
+        </ol>
+</ol>
+ <% end %>
+  
+  
+
 
 
 <%else%>
-  <li><%= link_to "Book Appoitnment", patient_path(@user) %></li>
+ 
+  <h1> Welcome <%= @user.name%> !! Have a nice day .</h1> 
+  <%= link_to "Book Appoitnment", patient_path(@user) %>
  
 <%end%>

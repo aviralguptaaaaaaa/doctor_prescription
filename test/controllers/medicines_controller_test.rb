@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PrescripedMedicineTest < ActiveSupport::TestCase
+class MedicinesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

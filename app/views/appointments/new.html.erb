@@ -1,0 +1,35 @@
+
+<%= form_with model: [@doctor,@doctor.appointments.build] do |form| %>
+    <div>
+      <%= form.label :date %><br>
+      <%= form.text_field :date %>
+      
+    </div>
+    <div>
+      <%= form.label :time %><br>
+      <%= form.text_field :time %>
+      
+    </div>
+  
+    <div>
+      <%= form.label :patients_age %><br>
+      <%= form.text_field :patients_age %>
+      
+    </div>
+  
+  <div>
+  <%= form.label :patients_problem %><br>
+  <%= form.text_field :patients_problem %>
+  </div>
+  <br>
+  
+  
+  
+  <div>
+  <%= form.submit "Book Appointment" %>
+  </div>
+  
+    <%end%>
+
+    
+    

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_132554) do
+ActiveRecord::Schema.define(version: 2021_12_02_114250) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "date"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_132554) do
     t.string "time"
     t.integer "doctor_id", null: false
     t.integer "patient_id", null: false
+    t.text "prescription"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
@@ -36,6 +37,9 @@ ActiveRecord::Schema.define(version: 2021_11_28_132554) do
     t.string "purpose"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "medicine_intake"
+    t.integer "appointment_id", null: false
+    t.index ["appointment_id"], name: "index_medicines_on_appointment_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -78,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_132554) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "patients"
+  add_foreign_key "appointments", "users", column: "doctor_id"
+  add_foreign_key "appointments", "users", column: "patient_id"
+  add_foreign_key "medicines", "appointments"
 end
