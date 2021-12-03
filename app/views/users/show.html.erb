@@ -1,6 +1,6 @@
 <% if @user.type== "Doctor" %>
   
-  <li><%= link_to "update details", edit_doctor_path(@user) %></li>   #for updating doctors details
+  <li><%= link_to "update details", edit_doctor_path(@user) %></li> 
   <%= link_to "Destroy", user_path(@user),method: :delete, data: { confirm: "Are you sure?" } %>
 
   <h1> Appointments </h1>
