@@ -1,2 +1,0 @@
-class PrescripedMedicineController < ApplicationController
-end
