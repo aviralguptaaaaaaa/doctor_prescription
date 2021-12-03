@@ -1,11 +1,9 @@
 
- <h1> Add Medicines </h1>
- <%= form_with model: [@app,@app.medicines.build] do |form| %>
+ <h1> Edit Medicine </h1>
+ <%= form_for :medicine do |form| %>
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
-
-    
     <% @medicine.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -23,7 +21,6 @@
   <div>
     <%= form.label :purpose %><br>
     <%= form.text_field :purpose %>
-
     <% @medicine.errors.full_messages_for(:purpose).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -31,7 +28,7 @@
   </div>
   
   <div>
-  <%= form.submit "Add Medicine" %>
+  <%= form.submit "Save Medicine" %>
   </div>
 
 

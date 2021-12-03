@@ -1,4 +1,11 @@
-<h3> <%=@patient.name%> </h1>
+<h3> Hi <%=@patient.name%> </h1>
+
+<style type="text/css">
+  p{
+    border: 1px sloid black;
+    background_color: bule;
+  }
+</style>
 
 <ul>
 <li><%= link_to "Edit", edit_patient_path(@patient) %></li>
@@ -6,13 +13,21 @@
 </ul>
 
 <h1> Recent appointments </h1>
-<ol><% @patient.appointments.each do |appointment| %>
-  <p>
+  
+<% @patient.appointments.each do |appointment| %>
+ <ol> <l1> <p>
    <strong>Your Problem :- </strong> <%= appointment.patients_problem %> <br>
-   <strong>Doctor Appointed :- </strong><% d= Doctor.find(appointment.doctor_id) %> <%= d.name%>
+   <strong>Doctor Appointed :- </strong><% d= Doctor.find(appointment.doctor_id) %> <%= d.name%> <br>
    <strong>Prescription :- </strong> <%= appointment.prescription %> <br>
+   <strong>Medicines Given :- </strong> <br>
+     <%appointment.medicines.each do |m|%>   <ol>
+      <li> <strong>Name: </strong>  <%=m.name%> </li>
+      <strong>Medicine Intake: </strong>  <%=m.medicine_intake%> 
+      <strong>Purpose: </strong>  <%=m.purpose%>   </ol></li> </ol>
+    <%end%>
   </p> 
 </ol>
+<%= link_to "Edit Appointment", edit_doctor_appointment_path(d.id,appointment.id)%>
 <% end %>
 <ul>
 <h1> Book an appointment with suitable doctor </h1>

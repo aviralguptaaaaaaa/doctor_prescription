@@ -4,27 +4,32 @@
   <%= link_to "Destroy", user_path(@user),method: :delete, data: { confirm: "Are you sure?" } %>
 
   <h1> Appointments </h1>
-<ol><% @user.appointments.each do |appointment| %>
+<% @user.appointments.each do |appointment| %> <ol>
   
   <% p= Patient.find(appointment.patient_id) %>
-<li>  <strong>Doctor Appointed :- </strong><% d= Doctor.find(appointment.doctor_id) %> <span>Dr. </span><%= d.name%></li><br>
-<li>  <strong> Patient's Problem :- </strong> <%= appointment.patients_problem %> <br></li>
-<li>   <strong>Patient's Name :- </strong> <%= p.name%></li><br>
-<li>  <strong>Patient's age :- </strong> <%=appointment.patients_age%></li> <br>
-<li> <strong>Given prescription :- </strong> <%=appointment.prescription%></li> <br>
+  <% d= Doctor.find(appointment.doctor_id) %>
+<li>  <strong>Doctor Appointed  :- </strong> <span>Dr. </span><%= d.name%></li>
+<li>  <strong>Patient's Problem :- </strong> <%= appointment.patients_problem %> </li>
+<li>  <strong>Patient's Name   :- </strong> <%= p.name%></li>
+<li>  <strong>Patient's age     :- </strong> <%=appointment.patients_age%></li> 
+<li> <strong>Given prescription :- </strong> <%=appointment.prescription%></li>
  
       <%= link_to "Edit Prescription" , edit_doctor_appointment_path(current_user.id,appointment.id) %>   
       
       <li><strong> Medicine Given</strong></li>
-        <ol>
-          <%appointment.medicines.each do |m|%>
-            <li> <strong>Name: </strong>  <%=m.name%> </li>
-            <li> <strong>Medicine Intake: </strong>  <%=m.medicine_intake%> </li>
-            <li> <strong>Purpose: </strong>  <%=m.purpose%> </li>
+       
+          <%appointment.medicines.each do |m|%>   
+            <ol>
+              <li> <strong>Name: </strong>  <%=m.name%> </li>
+               <strong>Medicine Intake: </strong>  <%=m.medicine_intake%> <br>
+               <strong>Purpose: </strong>  <%=m.purpose%>  <br>
+               <%= link_to "Delete Medicine" , appointment_medicine_path(appointment.id,m.id),method: :delete, data: { confirm: "Are you sure?" } %>
+               <%= link_to "Edit Medicine" , edit_appointment_medicine_path(appointment.id,m.id)%>
+             </ol>
             
           <%end%>
-        </ol>
-</ol>
+          <br><br>
+
  <% end %>
   
   

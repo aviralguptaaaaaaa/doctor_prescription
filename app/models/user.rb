@@ -7,4 +7,7 @@ class User < ApplicationRecord
   
   scope :doctor, -> { where(type: 'doctor') } 
   scope :patient, -> { where(type: 'patient') } 
+
+  validates :name, presence: true
+  validates :phone_no, presence: true, length: { minimum: 10 , maximum: 10}
 end

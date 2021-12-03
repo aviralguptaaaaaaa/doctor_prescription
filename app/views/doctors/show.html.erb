@@ -1,15 +1,12 @@
 
 
 
-<ul>
- # <li><%= link_to "Edit", edit_doctor_path(@doctor) %></li>
-  #<li><%= link_to "Destroy", doctor_path(@doctor),method: :delete, data: { confirm: "Are you sure?" } %></li>
-</ul>
+<h1>Details of Dr. <%=@doctor.name%> </h1>
 
-
-<h3> Name :</h3> <span> Dr.</span> <%= @doctor.name %>
-<h3>Qualifications :- </h3><%= @doctor.qualifications%> 
-<h3>Specializations :- </h3><%= @doctor.specialist_in %>
-<h3>Certifications :- </h3><%= @doctor.certifications %> <br>
+<strong> Name :</strong> <span> Dr.</span> <%= @doctor.name %> <br>
+<strong>Qualifications :- </strong> <%= @doctor.qualifications%>  <br>
+<strong>Specializations :- </strong><%= @doctor.specialist_in %><br>
+<strong>Certifications :- </strong><%= @doctor.certifications %> <br>
  
 <%= link_to "Book Appointment", new_doctor_appointment_path(@doctor)%>
+

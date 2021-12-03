@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 end
  post '/doctors/:doctor_id/appointments/:id/edit' => 'appointments#update'
  get '/doctors/:doctor_id/appointments/:id/medicines/new' => 'medicines#new'
+ post 'appointments/appointment_id/medicines/:id' => 'medicines#edit'
  
 end

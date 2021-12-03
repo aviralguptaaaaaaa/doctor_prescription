@@ -3,23 +3,41 @@
     <div>
       <%= form.label :date %><br>
       <%= form.text_field :date %>
+
+      <% @appointment.errors.full_messages_for(:date).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      
       
     </div>
     <div>
       <%= form.label :time %><br>
       <%= form.text_field :time %>
+
+      <% @appointment.errors.full_messages_for(:time).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
       
     </div>
   
     <div>
       <%= form.label :patients_age %><br>
       <%= form.text_field :patients_age %>
+
+      <% @appointment.errors.full_messages_for(:patients_age).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
       
     </div>
   
   <div>
   <%= form.label :patients_problem %><br>
   <%= form.text_field :patients_problem %>
+
+  
+<% @appointment.errors.full_messages_for(:patients_problem).each do |message| %>
+  <div><%= message %></div>
+<% end %>
   </div>
   <br>
   
