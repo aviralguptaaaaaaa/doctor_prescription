@@ -1,11 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  medicine_name: MyString
-  medicine_intake: MyString
-  appointment: one
+  refferences: 
 
 two:
-  medicine_name: MyString
-  medicine_intake: MyString
-  appointment: two
+  refferences: 

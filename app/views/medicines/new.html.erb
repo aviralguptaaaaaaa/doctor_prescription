@@ -1,5 +1,4 @@
-
- <h1> Add Medicines </h1>
+<h1> Add Medicines </h1>
  <%= form_with model: [@app,@app.medicines.build] do |form| %>
   <div>
     <%= form.label :name %><br>
@@ -29,10 +28,9 @@
     <% end %>
     
   </div>
-  
+
   <div>
   <%= form.submit "Add Medicine" %>
   </div>
 
-
-  <%end%>
+<%end%>

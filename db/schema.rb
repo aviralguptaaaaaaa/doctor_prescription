@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_114250) do
+ActiveRecord::Schema.define(version: 2021_12_06_124719) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "date"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_114250) do
     t.string "time"
     t.integer "doctor_id", null: false
     t.integer "patient_id", null: false
-    t.text "prescription"
+    t.string "prescription"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
@@ -35,31 +35,14 @@ ActiveRecord::Schema.define(version: 2021_12_02_114250) do
   create_table "medicines", force: :cascade do |t|
     t.string "name"
     t.string "purpose"
+    t.string "medicine_intake"
+    t.integer "appointment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "medicine_intake"
-    t.integer "appointment_id", null: false
     t.index ["appointment_id"], name: "index_medicines_on_appointment_id"
   end
 
   create_table "patients", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "prescriped_medicines", force: :cascade do |t|
-    t.integer "medicine_id"
-    t.integer "quantity"
-    t.integer "prescription_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "prescriptions", force: :cascade do |t|
-    t.text "body"
-    t.string "doctors_name"
-    t.string "date"
-    t.string "patients_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -84,5 +67,4 @@ ActiveRecord::Schema.define(version: 2021_12_02_114250) do
 
   add_foreign_key "appointments", "users", column: "doctor_id"
   add_foreign_key "appointments", "users", column: "patient_id"
-  add_foreign_key "medicines", "appointments"
 end
