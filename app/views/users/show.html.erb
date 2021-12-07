@@ -37,8 +37,28 @@
 
 
 <%else%>
+
+<h1> Welcome <%= @user.name%> !! Have a nice day .</h1> 
+
+<h1> Recent appointments </h1>
+  
+<% @patient.appointments.each do |appointment| %>
+ <ol> <l1> <p>
+   <strong>Your Problem :- </strong> <%= appointment.patients_problem %> <br>
+   <strong>Doctor Appointed :- </strong><% d= Doctor.find(appointment.doctor_id) %> <%= d.name%> <br>
+   <strong>Prescription :- </strong> <%= appointment.prescription %> <br>
+   <strong>Medicines Given :- </strong> <br>
+     <%appointment.medicines.each do |m|%>   <ol>
+      <li> <strong>Name: </strong>  <%=m.name%> </li>
+      <strong>Medicine Intake: </strong>  <%=m.medicine_intake%> 
+      <strong>Purpose: </strong>  <%=m.purpose%>   </ol></li> </ol>
+    <%end%>
+  </p> 
+</ol>
+<%= link_to "Edit Appointment", edit_doctor_appointment_path(d.id,appointment.id)%>
+<% end %>
  
-  <h1> Welcome <%= @user.name%> !! Have a nice day .</h1> 
+ 
   <%= link_to "Book Appoitnment", patient_path(@user) %>
  
 <%end%>
